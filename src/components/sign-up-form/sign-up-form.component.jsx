@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -7,6 +7,8 @@ import {
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { UserContext } from "../../contexts/user.contexts";
+
 import "./sign-up-form.styles.scss";
 
 const defualtFormFields = {
@@ -36,7 +38,9 @@ const SignUpForm = () => {
         email,
         uid: user.uid,
       };
-      const userDocRef = await createUserDocumentFromAuth(userAuth);
+
+      await createUserDocumentFromAuth(userAuth);
+
       clearFields();
     } catch (error) {
       console.log(error);

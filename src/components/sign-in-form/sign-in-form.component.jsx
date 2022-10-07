@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 
 import {
   signInUserWithEmailAndPassword,
@@ -8,6 +8,7 @@ import {
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
 import "./sign-in-form.styles.scss";
 
 const defualtFormFields = {
@@ -25,8 +26,7 @@ const SignInForm = () => {
 
     try {
       console.log(email, password);
-      const user = await signInUserWithEmailAndPassword(email, password);
-      console.log(user);
+      await signInUserWithEmailAndPassword(email, password);
       clearFields();
     } catch (error) {
       switch (error.code) {
@@ -48,9 +48,7 @@ const SignInForm = () => {
 
   const loginGoogleUser = async (event) => {
     event.preventDefault();
-    const res = await signInWithGooglePopup();
-    console.log(res);
-    await createUserDocumentFromAuth(res.user);
+    await signInWithGooglePopup();
   };
 
   const onChange = (event) => {
