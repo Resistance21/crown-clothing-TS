@@ -3,7 +3,16 @@ import { React, useContext } from "react";
 import Button from "../button/button.component";
 import { CartContext } from "../../contexts/cart.context";
 
-import "./checkout-item.syles.scss";
+import {
+  CheckoutItemContainer,
+  Arrow,
+  Image,
+  ImageContainer,
+  Name,
+  Price,
+  Quantity,
+  Value,
+} from "./checkout-item.syles.jsx";
 
 const CheckoutItem = ({ item }) => {
   const { name, price, imageUrl, quantity } = item;
@@ -14,25 +23,21 @@ const CheckoutItem = ({ item }) => {
   const subtractQuantHandler = () => changeQuant("subtract", item);
 
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
-        <img src={imageUrl} alt={name} />
-      </div>
-      <div className="name">{name}</div>
-      <div className="quantity">
-        <div className="arrow" onClick={subtractQuantHandler}>
-          &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={addQuantHandler}>
-          &#10095;
-        </div>
-      </div>
-      <div className="price">{quantity * price}</div>
+    <CheckoutItemContainer>
+      <ImageContainer>
+        <Image src={imageUrl} alt={name} />
+      </ImageContainer>
+      <Name>{name}</Name>
+      <Quantity>
+        <Arrow onClick={subtractQuantHandler}>&#10094;</Arrow>
+        <Value as="span">{quantity}</Value>
+        <Arrow onClick={addQuantHandler}>&#10095;</Arrow>
+      </Quantity>
+      <Price>{quantity * price}</Price>
       <div className="remove-button" onClick={removeItemHandler}>
         &#10005;
       </div>
-    </div>
+    </CheckoutItemContainer>
   );
 };
 

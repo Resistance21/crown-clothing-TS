@@ -1,4 +1,4 @@
-import { useState, Fragment, useContext } from "react";
+import { useState, Fragment } from "react";
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -7,9 +7,8 @@ import {
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
-import { UserContext } from "../../contexts/user.contexts";
 
-import "./sign-up-form.styles.scss";
+import { SignUpContainer, H2 } from "./sign-up-form.styles.jsx";
 
 const defualtFormFields = {
   displayName: "",
@@ -58,8 +57,8 @@ const SignUpForm = () => {
 
   return (
     <Fragment>
-      <div className="sign-up-container">
-        <h2>Dont have an account?</h2>
+      <SignUpContainer>
+        <H2>Dont have an account?</H2>
         <span>Sign up with Email and Password</span>
         <form onSubmit={handleSubmit}>
           <FormInput
@@ -92,7 +91,7 @@ const SignUpForm = () => {
           />
           <Button type="submit">Sign Up</Button>
         </form>
-      </div>
+      </SignUpContainer>
     </Fragment>
   );
 };
