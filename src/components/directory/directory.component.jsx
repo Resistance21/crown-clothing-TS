@@ -1,9 +1,9 @@
 import React from "react";
-import CategoryItem from "../category-item/category-item.component";
+import DirectoryItem from "../directory-item/directory-item.component";
 
-import "./categories.styles.scss";
+import "./directory.styles.scss";
 
-const Categories = () => {
+const directories = () => {
   const categories = [
     {
       id: 1,
@@ -33,12 +33,12 @@ const Categories = () => {
   ];
 
   return (
-    <div className="categories-container">
+    <div className="directory-container">
       {categories.map((category) => {
-        return <CategoryItem category={category} key={category.id} />;
+        return <DirectoryItem category={category} key={category.id} />;
       })}
     </div>
   );
 };
 
-export default Categories;
+export default directories;
