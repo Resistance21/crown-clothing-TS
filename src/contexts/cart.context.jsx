@@ -33,7 +33,6 @@ const cartReducer = (state, action) => {
 
   switch (type) {
     case CART_ACTION_TYPES.CART_ADD_ITEM:
-      //console.log(state);
       return {
         ...state,
         ...payload,
@@ -64,7 +63,6 @@ const cartReducer = (state, action) => {
 };
 
 const itemCheck = (cartItems, productToAdd) => {
-  console.log("CARTS", cartItems);
   const foundItem = cartItems.find((item) => {
     return item.id === productToAdd.id;
   });
