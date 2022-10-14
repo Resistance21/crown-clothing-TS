@@ -38,8 +38,7 @@ export const Price = styled.div`
   width: 23%;
 `;
 
-/*   .remove-button {
-    padding-left: 12px;
-    cursor: pointer;
-  }
-} */
+export const Remove = styled.div`
+  padding-left: 12px;
+  cursor: pointer;
+`;

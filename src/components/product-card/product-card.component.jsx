@@ -1,7 +1,7 @@
 import { React, useContext } from "react";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import { CartContext } from "../../contexts/cart.context";
+import { CartContext, CART_ACTION_TYPES } from "../../contexts/cart.context";
 
 import {
   Footer,

@@ -12,6 +12,7 @@ import {
   Price,
   Quantity,
   Value,
+  Remove,
 } from "./checkout-item.syles.jsx";
 
 const CheckoutItem = ({ item }) => {
@@ -34,9 +35,7 @@ const CheckoutItem = ({ item }) => {
         <Arrow onClick={addQuantHandler}>&#10095;</Arrow>
       </Quantity>
       <Price>{quantity * price}</Price>
-      <div className="remove-button" onClick={removeItemHandler}>
-        &#10005;
-      </div>
+      <Remove onClick={removeItemHandler}>&#10005;</Remove>
     </CheckoutItemContainer>
   );
 };

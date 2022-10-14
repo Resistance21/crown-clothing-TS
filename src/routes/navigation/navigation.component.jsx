@@ -18,7 +18,7 @@ import {
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { cartState, setCartState } = useContext(CartContext);
+  const { cartState, setCartState, cartDropdownOpen } = useContext(CartContext);
   //console.log("nav", currentUser);
 
   const logOutHandler = async () => {
@@ -47,7 +47,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </NavLinks>
-        {cartState && <CartDropdown />}
+        {cartDropdownOpen && <CartDropdown />}
       </NavigationContainer>
       <Outlet />
     </Fragment>
