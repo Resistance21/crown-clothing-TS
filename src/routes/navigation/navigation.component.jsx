@@ -10,6 +10,7 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 
 import { userSignOut } from "../../utils/firebase/firebase.utils";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCartDropDownWindow } from "../../store/cart/cart.selectors.js";
 
 import {
   NavigationContainer,
@@ -20,8 +21,9 @@ import {
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const cartDropdownOpen = useSelector(selectCartDropDownWindow);
   //const { currentUser } = useContext(UserContext);
-  const { cartState, setCartState, cartDropdownOpen } = useContext(CartContext);
+  //const { cartState, setCartState, cartDropdownOpen } = useContext(CartContext);
   //console.log("nav", currentUser);
 
   const logOutHandler = async () => {
