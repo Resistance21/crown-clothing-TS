@@ -5,7 +5,7 @@ import { SpinnerContainer } from "../spinner/spiner.styles";
 export const BaseButton = styled.button`
   min-width: 16.5rem;
   width: auto;
-  height: 5rem;
+  min-height: 5rem;
   letter-spacing: 0.5px;
   line-height: 5rem;
   padding: 0 3.5rem 0 3.5rem;
@@ -51,4 +51,5 @@ export const InvertedButton = styled(BaseButton)`
 export const ButtonSpinner = styled(SpinnerContainer)`
   width: 3rem;
   height: 3rem;
+  margin: auto;
 `;

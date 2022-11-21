@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selectors";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import Spinner from "../spinner/spinner.component";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -37,8 +36,6 @@ const PaymentForm = () => {
       ).then((res) => {
         return res.json();
       });
-
-      console.log("res", response);
       const clientSecret = response.paymentIntent.client_secret;
 
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
@@ -51,7 +48,6 @@ const PaymentForm = () => {
       });
 
       if (paymentResult.error) {
-        console.log(paymentResult);
         alert(paymentResult.error.message);
       } else {
         if (paymentResult.paymentIntent.status === "succeeded") {

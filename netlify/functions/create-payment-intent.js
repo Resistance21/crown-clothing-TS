@@ -1,9 +1,5 @@
 require("dotenv").config();
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
-console.log(process.env.REACT_APP_STRIPE_SECRET_KEY);
-/* const stripe = require("stripe")(
-  "sk_test_51M4dmfDWOcIqxsD4inONwgGsx3chkuEbhWiwzDK0SjytQ14IYc6hLaKzcgpqco768c3wwjFVLiHpYYy5NNVMZ5yB00gPz60j8z"
-); */
 
 exports.handler = async (event) => {
   try {
@@ -14,8 +10,6 @@ exports.handler = async (event) => {
       currency: "usd",
       payment_method_types: ["card"],
     });
-
-    console.log("pay", paymentIntent);
 
     return {
       statusCode: 200,
