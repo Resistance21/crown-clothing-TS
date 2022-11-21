@@ -1,7 +1,11 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import { PaymentFormContainer, FormContainer } from "./payment-form.styles";
+import {
+  PaymentFormContainer,
+  FormContainer,
+  CardElementDiv,
+} from "./payment-form.styles";
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
@@ -65,7 +69,9 @@ const PaymentForm = () => {
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit Card Payment: </h2>
-        <CardElement />
+        <CardElementDiv>
+          <CardElement />
+        </CardElementDiv>
 
         <Button
           isLoading={isProcessing}
