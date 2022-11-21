@@ -20,7 +20,11 @@ root.render(
       <PersistGate persistor={persistor}>
         <BrowserRouter>
           <Elements stripe={stripePromise}>
-            {console.log(stripePromise)}
+            {console.log(
+              stripePromise,
+              process.env.REACT_APP_STRIPE_SECRET_KEY,
+              process.env
+            )}
             <App />
           </Elements>
         </BrowserRouter>
