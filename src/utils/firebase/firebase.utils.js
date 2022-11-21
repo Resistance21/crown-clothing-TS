@@ -68,12 +68,11 @@ export const createUserDocumentFromAuth = async (userAuth) => {
       console.log("error creating user: " + err.message);
     }
   }
-  return userDocRef;
+  return userSnapShot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
@@ -116,4 +115,17 @@ export const getCategoriesAndDocuments = async () => {
   //}, {});
 
   //return categoryMap;
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
 };
