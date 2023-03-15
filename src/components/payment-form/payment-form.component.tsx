@@ -7,11 +7,10 @@ import {
   CardElementDiv,
 } from "./payment-form.styles";
 
-import React, { useState, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selectors";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { StripeCardElement } from "@stripe/stripe-js";
 
 const PaymentForm = () => {
   const stripe = useStripe();
