@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
-import { act } from "react-dom/test-utils";
+import { createContext, useReducer } from "react";
 
 export const CartContext = createContext({
   cartItems: [],
